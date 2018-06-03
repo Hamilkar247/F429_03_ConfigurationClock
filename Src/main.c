@@ -60,9 +60,26 @@ static void MX_TIM10_Init(void);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	if(htim->Instance == TIM10){
-		HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port,LED_BLUE_Pin);
+
+	static uint16_t counter = 0; // licznik
+
+	++counter; // inkrementacja licznika z czestotliwoscia 2 Hz
+
+	if(counter == 10){ //jezelei counter dolicz do 10
+		counter = 0;//wyzeruj counter
+		if(htim->Instance == TIM10){
+			HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port,LED_BLUE_Pin);//przelacza diode
+		}
+
 	}
+
+	//Powy¿szy kod powoduje to, ¿e zmiana
+	//stanu diody odbywaæ siê bêdzie z dziesiêciokrotnie mniejsz¹
+	//czêstotliwoœci¹, czyli w tym wypadku 0.2Hz.
+	//Oznacza to, ¿e zmiana stanu diody
+	//powinna nast¹piæ co 5 sekund. Wgrywamy program przez debugger
+	//i wciskamy F8 aby wznowiæ dzia³anie.
+
 }
 /* USER CODE END PFP */
 

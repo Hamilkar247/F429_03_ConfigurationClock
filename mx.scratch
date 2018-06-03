@@ -4,7 +4,7 @@
 <ProjectNature>C</ProjectNature> 
 <CMSIS>..\Drivers\CMSIS</CMSIS>
 <HAL_Driver>C:\Users\Matball\STM32Cube\Repository\STM32Cube_FW_F4_V1.21.0\Drivers\CMSIS</HAL_Driver>
-<Toolchain>SW4STM32</Toolchain>
+<Toolchain>TrueSTUDIO</Toolchain>
 <Version>0</Version>
 
 <filestoremove>
@@ -31,8 +31,8 @@
 			
     <usedDebug>true</usedDebug>
     	<debugprobe></debugprobe>
-    <optimization>6</optimization>
-    <icfloc>0</icfloc>
+    <optimization></optimization>
+    <icfloc>1</icfloc>
     <Adefines>
         <define></define>
     </Adefines>   
